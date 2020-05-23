@@ -1,35 +1,18 @@
-import React from 'react';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-//react-navigation
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from './screens/Home';
 
-// screens
-import Home from './screens/Home';
-import Season from './screens/Season';
+const Stack = createStackNavigator();
 
-const AppNavigator = createStackNavigator(
-  // telas (rotas) que iremos navegar
-  {
-    // telas importadas
-    Home: {
-      screen: Home,
-    },
-    Season: {
-      screen: Season,
-    }
-  },
-  // default config
-  {
-    // rota inicial do aplicativo
-    initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      headerStyle: {
-        backgroundColor: '#333',
-      },
-      headerTintColor: '#fff',
-    }
-  },
-);
-
-export default createAppContainer(AppNavigator);
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={ HomeScreen } />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
