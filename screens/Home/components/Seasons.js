@@ -11,10 +11,13 @@ const style = StyleSheet.create({
 
 const years = ['2020', '2019', '2018', '2017', '2016']
 
-const Seasons = () => {
+const Seasons = ({ handlerSeason }) => {
     return years
         .map(year => (
-            <Button style={style.button}>
+            <Button 
+                style={style.button} 
+                onPress={ () => handlerSeason('Season', {year})}>
+                
                 <Text>{year}</Text>
             </Button>
         ));
