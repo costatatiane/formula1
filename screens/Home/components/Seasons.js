@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 
 import { StyleSheet } from 'react-native';
-import { Text, Button } from 'native-base';
+
+import { Button, Text } from 'native-base';
 
 const style = StyleSheet.create({
     button: {
         marginBottom: 10
     }
-})
+});
 
-const years = ['2020', '2019', '2018', '2017', '2016']
-
-const Seasons = ({ handlerSeason }) => {
+const Seasons = ({ handlerSeason, years }) => {
     return years
         .map(year => (
-            <Button 
+            <Button
+                key={year.season}
                 style={style.button} 
-                onPress={ () => handlerSeason('Season', {year})}>
+                onPress={ () => handlerSeason('Season', {year: year.season})}>
                 
-                <Text>{year}</Text>
+                <Text>{year.season}</Text>
             </Button>
         ));
 }
