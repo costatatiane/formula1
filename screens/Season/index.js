@@ -23,9 +23,27 @@ class Season extends Component {
         return (
             <SafeAreaView>
                 <Text>{data.length > 0 ? data[0].raceName : 'Buscando...'}</Text>
+                <Seasons
             </SafeAreaView>
         );
     }
 }
 
 export default Season;
+
+// import React, { Component } from 'react';
+
+// import { Text, View } from 'react-native';
+
+// class Season extends Component {
+//     render() {
+//         console.log(this.props);
+//         return (
+//             <View>
+//                 <Text>Oi eu sou a tela de Season</Text>
+//             </View>
+//         );
+//     }
+// }
+
+// export default Season;
