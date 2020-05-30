@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Seasons from './components/Seasons';
 
@@ -17,12 +17,12 @@ class Home extends Component {
     
     render() {
         return (
-            <View>
+            <SafeAreaView>
                 <Seasons 
                     handlerSeason={ this.props.navigation.navigate }
                     years={ this.state.years }
                 />
-            </View>
+            </SafeAreaView>
         );
     }
 }

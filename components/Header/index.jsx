@@ -1,14 +1,11 @@
-import React from 'react';
+import { Platform } from 'react-native';
+import HeaderIOS from './iOS';
+import HeaderAndroid from './Android';
 
-import logo from '../../assets/logo.png';
-import './style.css';
-
-const Header = () => (
-    <header className="header">
-        <div className="container">
-            <img className="logo" src={logo} />
-        </div>
-    </header>
-);
+const Header = Platform.select({
+    ios: () => HeaderIOS,
+    android: () => HeaderAndroid,
+    default: () => HeaderIOS,
+})();
 
 export default Header;
