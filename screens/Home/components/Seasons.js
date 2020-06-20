@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { Button } from 'react-native-elements';
 
 import { StyleSheet } from 'react-native';
 
-import { Button, Text } from 'native-base';
-
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     button: {
-        marginBottom: 10
+        marginTop: 10,
+        marginBottom: 10,
+        width: 150,
     }
 });
 
 const Seasons = ({ handlerSeason, years }) => {
     return years
         .map(year => (
-            <Button
+            <Button title={year.season}
                 key={year.season}
-                style={style.button} 
-                onPress={ () => handlerSeason('Season', {year: year.season})}>
-                
-                <Text>{year.season}</Text>
+                style={styles.button} 
+                onPress={() => handlerSeason('Season', {year: year.season})}>
             </Button>
         ));
 }

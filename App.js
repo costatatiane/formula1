@@ -8,7 +8,11 @@ import Header from './components/Header/index';
 
 import HomeScreen from './screens/Home';
 import SeasonScreen from './screens/Season';
-import { Platform } from 'react-native';
+import RacesScreen from './screens/Races';
+import DriversScreen from './screens/Drivers';
+import CircuitsScreen from './screens/Circuits';
+import ResultsScreen from './screens/Results';
+import ConstructorsScreen from './screens/Constructors';
 
 const Stack = createStackNavigator();
 
@@ -18,12 +22,14 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{
           headerTitle: Header,
-          headerStyle: {
-            backgroundColor: Platform.OS === 'ios' ? '#3c74d7' : '#93bb3a'
-          }
         }}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Season" component={SeasonScreen} />
+          <Stack.Screen name="Races" component={RacesScreen} />
+          <Stack.Screen name="Drivers" component={DriversScreen} />
+          <Stack.Screen name="Circuits" component={CircuitsScreen} />
+          <Stack.Screen name="Results" component={ResultsScreen} />
+          <Stack.Screen name="Constructors" component={ConstructorsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

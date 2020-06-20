@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../../assets/logo.png';
 import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: '#93bb3a',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     img: {
         height: 40,
-        width: 120
+        width: 155
     }
 });
 
