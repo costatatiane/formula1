@@ -37,6 +37,10 @@ class Drivers extends Component {
             <SafeAreaView style={styles.container}>
                 {this.state.drivers.length > 0
                     ? <DataTable>
+                        <DataTable.Header>
+                            <DataTable.Title>Nome</DataTable.Title>
+                            <DataTable.Title>Nacionalidade</DataTable.Title>
+                        </DataTable.Header>
                         {
                             this.state.drivers.map(driver => (
                                 <DataTable.Row key={driver.driverId}>

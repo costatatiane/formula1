@@ -38,6 +38,10 @@ class Circuits extends Component {
             <SafeAreaView style={styles.container}>
                 {this.state.circuits.length > 0
                     ? <DataTable>
+                        <DataTable.Header>
+                            <DataTable.Title>Circuito</DataTable.Title>
+                            <DataTable.Title>Local</DataTable.Title>
+                        </DataTable.Header>
                         {
                             this.state.circuits.map(circuit => (
                                 <DataTable.Row key={circuit.circuitId}>

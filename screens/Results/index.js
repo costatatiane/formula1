@@ -38,17 +38,26 @@ class Results extends Component {
             <SafeAreaView style={styles.container}>
                 {this.state.results.length > 0
                     ? <DataTable>
+                        <DataTable.Header>
+                            <DataTable.Title>Etapa</DataTable.Title>
+                            <DataTable.Title>Circuito</DataTable.Title>
+                            <DataTable.Title>Data</DataTable.Title>
+                            <DataTable.Title>Vencedor</DataTable.Title>
+                            <DataTable.Title>Scuderia</DataTable.Title>
+                            <DataTable.Title>Voltas</DataTable.Title>
+                            <DataTable.Title>Tempo</DataTable.Title>
+                        </DataTable.Header>
                         {
                             this.state.results.map(result => (
-                                <DataTable.Row key={result.round}>
-                                    <DataTable.Cell>{result.raceName}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Circuit.circuitName}</DataTable.Cell>
-                                    <DataTable.Cell>{result.date}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results[0].Driver.familyName}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results[0].Constructor.name}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results[0].laps}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results[0].Time.time}</DataTable.Cell>
-                                </DataTable.Row>
+                                    <DataTable.Row key={result.round}>
+                                        <DataTable.Cell>{result.raceName}</DataTable.Cell>
+                                        <DataTable.Cell>{result.Circuit.circuitName}</DataTable.Cell>
+                                        <DataTable.Cell>{result.date}</DataTable.Cell>
+                                        <DataTable.Cell>{result.Results[0].Driver.familyName}</DataTable.Cell>
+                                        <DataTable.Cell>{result.Results[0].Constructor.name}</DataTable.Cell>
+                                        <DataTable.Cell>{result.Results[0].laps}</DataTable.Cell>
+                                        <DataTable.Cell>{result.Results[0].Time.time}</DataTable.Cell>
+                                    </DataTable.Row>
                             ))
                         }
                     </DataTable>

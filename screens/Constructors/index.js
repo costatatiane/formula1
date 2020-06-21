@@ -37,6 +37,10 @@ class Constructors extends Component {
             <SafeAreaView style={styles.container}>
                 {this.state.constructors.length > 0
                     ? <DataTable>
+                        <DataTable.Header>
+                            <DataTable.Title>Scuderia</DataTable.Title>
+                            <DataTable.Title>Nacionalidade</DataTable.Title>
+                        </DataTable.Header>
                         {
                             this.state.constructors.map(constructor => (
                                 <DataTable.Row key={constructor.constructorId}>

@@ -38,6 +38,10 @@ class Races extends Component {
             <SafeAreaView style={styles.container}>
                 {this.state.races.length > 0
                     ? <DataTable>
+                        <DataTable.Header>
+                            <DataTable.Title>ID</DataTable.Title>
+                            <DataTable.Title>Circuito</DataTable.Title>
+                        </DataTable.Header>
                         {
                             this.state.races.map(race => (
                                 <DataTable.Row key={race.round}>
