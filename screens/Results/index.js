@@ -28,19 +28,20 @@ class Results extends Component {
     componentDidMount() {
         return fetch(`https://ergast.com/api/f1/${this.props.route.params.year}/results.json`)
             .then(response => response.json())
-            .then(data => this.setState({ drivers: data.MRData.DriverTable.Drivers }))
+            .then(data => this.setState({ results: data.MRData.RaceTable.Races}))
             .catch(error => console.log(error));
     }
 
     render() {
+        console.log(this.state.results)
         return (
             <SafeAreaView style={styles.container}>
-                {this.state.drivers.length > 0
+                {this.state.results.length > 0
                     ? <DataTable>
                         {
-                            this.state.drivers.map(driver => (
-                                <DataTable.Row key={driver.driverId}>
-                                    <DataTable.Cell>{driver.givenName} {driver.familyName}</DataTable.Cell>
+                            this.state.results.map(result => (
+                                <DataTable.Row key={result.round}>
+                                    <DataTable.Cell>{result.raceName}</DataTable.Cell>
                                 </DataTable.Row>
                             ))
                         }

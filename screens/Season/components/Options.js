@@ -31,10 +31,10 @@ const Seasons = ({ handlerSeason, year }) => {
                 style={styles.button} 
                 onPress={() => handlerSeason('Constructors', {year: year})}
             />
-            {/* <Button title="Resultados"
+            <Button title="Resultados"
                 style={styles.button} 
                 onPress={() => handlerSeason('Results', {year: year})}
-            /> */}
+            /> 
         </View>
     );
 }
