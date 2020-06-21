@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { DataTable } from 'react-native-paper';
+import { Card, Title, Paragraph, Divider } from 'react-native-paper';
 import { Text } from 'react-native-elements';
 
 const styles = StyleSheet.create({
@@ -37,22 +37,21 @@ class Circuits extends Component {
         return (
             <SafeAreaView style={styles.container}>
                 {this.state.circuits.length > 0
-                    ? <DataTable>
-                        <DataTable.Header>
-                            <DataTable.Title>Circuito</DataTable.Title>
-                            <DataTable.Title>Cidade</DataTable.Title>
-                            <DataTable.Title>País</DataTable.Title>
-                        </DataTable.Header>
+                    ?  <Card>
                         {
                             this.state.circuits.map(circuit => (
-                                <DataTable.Row key={circuit.circuitId}>
-                                    <DataTable.Cell>{circuit.circuitName}</DataTable.Cell>
-                                    <DataTable.Cell>{circuit.Location.locality}</DataTable.Cell>
-                                    <DataTable.Cell>{circuit.Location.country}</DataTable.Cell>
-                                </DataTable.Row>
+                                <Card.Content>
+                                    <Title>Circuito</Title>
+                                    <Paragraph>{circuit.circuitName}</Paragraph>
+                                    <Title>Cidade</Title>
+                                    <Paragraph>{circuit.Location.locality}</Paragraph>
+                                    <Title>País</Title>
+                                    <Paragraph>{circuit.Location.country}</Paragraph>
+                                    <Divider />
+                                </Card.Content>
                             ))
                         }
-                    </DataTable>
+                    </Card>
                     : <Text>Buscando...</Text>
                 }
             </SafeAreaView>

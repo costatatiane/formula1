@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { DataTable } from 'react-native-paper';
+import { Card, Title, Paragraph, Divider } from 'react-native-paper';
 import { Text } from 'react-native-elements';
 
 const styles = StyleSheet.create({
@@ -37,30 +37,29 @@ class Results extends Component {
         return (
             <SafeAreaView style={styles.container}>
                 {this.state.results.length > 0
-                    ? <DataTable>
-                        <DataTable.Header>
-                            <DataTable.Title>Corrida</DataTable.Title>
-                            <DataTable.Title>Circuito</DataTable.Title>
-                            <DataTable.Title>Data</DataTable.Title>
-                            <DataTable.Title>Vencedor</DataTable.Title>
-                            <DataTable.Title>Escuderia</DataTable.Title>
-                            <DataTable.Title>Voltas</DataTable.Title>
-                            <DataTable.Title>Tempo</DataTable.Title>
-                        </DataTable.Header>
+                    ? <Card>
                         {
                             this.state.results.map(result => (
-                                    <DataTable.Row key={result.round}>
-                                        <DataTable.Cell>{result.raceName}</DataTable.Cell>
-                                        <DataTable.Cell>{result.Circuit.circuitName}</DataTable.Cell>
-                                        <DataTable.Cell>{result.date}</DataTable.Cell>
-                                        <DataTable.Cell>{result.Results[0].Driver.familyName}</DataTable.Cell>
-                                        <DataTable.Cell>{result.Results[0].Constructor.name}</DataTable.Cell>
-                                        <DataTable.Cell>{result.Results[0].laps}</DataTable.Cell>
-                                        <DataTable.Cell>{result.Results[0].Time.time}</DataTable.Cell>
-                                    </DataTable.Row>
+                                    <Card.Content key={result.round}>
+                                        <Title>Corrida</Title>
+                                        <Paragraph>{result.raceName}</Paragraph>
+                                        <Title>Circuito</Title>
+                                        <Paragraph>{result.Circuit.circuitName}</Paragraph>
+                                        <Title>Data</Title>
+                                        <Paragraph>{result.date}</Paragraph>
+                                        <Title>Vencedor</Title>
+                                        <Paragraph>{result.Results[0].Driver.familyName}</Paragraph>
+                                        <Title>Escuderia</Title>
+                                        <Paragraph>{result.Results[0].Constructor.name}</Paragraph>
+                                        <Title>Voltas</Title>
+                                        <Paragraph>{result.Results[0].laps}</Paragraph>
+                                        <Title>Tempo</Title>
+                                        <Paragraph>{result.Results[0].Time.time}</Paragraph>
+                                        <Divider />
+                                    </Card.Content>
                             ))
                         }
-                    </DataTable>
+                    </Card>
                     : <Text>Buscando...</Text>
                 }
             </SafeAreaView>
