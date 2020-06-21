@@ -44,10 +44,10 @@ class Results extends Component {
                                     <DataTable.Cell>{result.raceName}</DataTable.Cell>
                                     <DataTable.Cell>{result.Circuit.circuitName}</DataTable.Cell>
                                     <DataTable.Cell>{result.date}</DataTable.Cell>
-                                    {/* <DataTable.Cell>{result.Results.Driver.familyName}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results.Constructor.name}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results.laps}</DataTable.Cell>
-                                    <DataTable.Cell>{result.Results.Time.time}</DataTable.Cell> */}
+                                    <DataTable.Cell>{result.Results[0].Driver.familyName}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Results[0].Constructor.name}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Results[0].laps}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Results[0].Time.time}</DataTable.Cell>
                                 </DataTable.Row>
                             ))
                         }
