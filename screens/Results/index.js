@@ -26,7 +26,7 @@ class Results extends Component {
     }
 
     componentDidMount() {
-        return fetch(`https://ergast.com/api/f1/${this.props.route.params.year}/results.json`)
+        return fetch(`https://ergast.com/api/f1/${this.props.route.params.year}/results/1.json`)
             .then(response => response.json())
             .then(data => this.setState({ results: data.MRData.RaceTable.Races}))
             .catch(error => console.log(error));
@@ -42,6 +42,12 @@ class Results extends Component {
                             this.state.results.map(result => (
                                 <DataTable.Row key={result.round}>
                                     <DataTable.Cell>{result.raceName}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Circuit.circuitName}</DataTable.Cell>
+                                    <DataTable.Cell>{result.date}</DataTable.Cell>
+                                    {/* <DataTable.Cell>{result.Results.Driver.familyName}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Results.Constructor.name}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Results.laps}</DataTable.Cell>
+                                    <DataTable.Cell>{result.Results.Time.time}</DataTable.Cell> */}
                                 </DataTable.Row>
                             ))
                         }
