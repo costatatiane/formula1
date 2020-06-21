@@ -39,14 +39,16 @@ class Races extends Component {
                 {this.state.races.length > 0
                     ? <DataTable>
                         <DataTable.Header>
-                            <DataTable.Title>ID</DataTable.Title>
+                            <DataTable.Title>Corrida</DataTable.Title>
                             <DataTable.Title>Circuito</DataTable.Title>
+                            <DataTable.Title>Data</DataTable.Title>
                         </DataTable.Header>
                         {
                             this.state.races.map(race => (
                                 <DataTable.Row key={race.round}>
-                                    <DataTable.Cell>{race.round}</DataTable.Cell>
+                                    <DataTable.Cell>{race.raceName}</DataTable.Cell>
                                     <DataTable.Cell>{race.Circuit.circuitName}</DataTable.Cell>
+                                    <DataTable.Cell>{race.date}</DataTable.Cell>
                                 </DataTable.Row>
                             ))
                         }

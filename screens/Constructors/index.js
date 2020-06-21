@@ -38,7 +38,7 @@ class Constructors extends Component {
                 {this.state.constructors.length > 0
                     ? <DataTable>
                         <DataTable.Header>
-                            <DataTable.Title>Scuderia</DataTable.Title>
+                            <DataTable.Title>Escuderia</DataTable.Title>
                             <DataTable.Title>Nacionalidade</DataTable.Title>
                         </DataTable.Header>
                         {

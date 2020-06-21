@@ -40,13 +40,15 @@ class Circuits extends Component {
                     ? <DataTable>
                         <DataTable.Header>
                             <DataTable.Title>Circuito</DataTable.Title>
-                            <DataTable.Title>Local</DataTable.Title>
+                            <DataTable.Title>Cidade</DataTable.Title>
+                            <DataTable.Title>País</DataTable.Title>
                         </DataTable.Header>
                         {
                             this.state.circuits.map(circuit => (
                                 <DataTable.Row key={circuit.circuitId}>
                                     <DataTable.Cell>{circuit.circuitName}</DataTable.Cell>
                                     <DataTable.Cell>{circuit.Location.locality}</DataTable.Cell>
+                                    <DataTable.Cell>{circuit.Location.country}</DataTable.Cell>
                                 </DataTable.Row>
                             ))
                         }

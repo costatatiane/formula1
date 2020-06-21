@@ -53,7 +53,7 @@ class Drivers extends Component {
                     : <Text>Buscando...</Text>
                 }
             </SafeAreaView>
-        );
+        )
     }
 }
 

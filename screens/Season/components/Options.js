@@ -27,7 +27,7 @@ const Seasons = ({ handlerSeason, year }) => {
                 style={styles.button} 
                 onPress={() => handlerSeason('Circuits', {year: year})}
             />
-            <Button title="Construtores"
+            <Button title="Escuderias"
                 style={styles.button} 
                 onPress={() => handlerSeason('Constructors', {year: year})}
             />

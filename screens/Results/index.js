@@ -39,11 +39,11 @@ class Results extends Component {
                 {this.state.results.length > 0
                     ? <DataTable>
                         <DataTable.Header>
-                            <DataTable.Title>Etapa</DataTable.Title>
+                            <DataTable.Title>Corrida</DataTable.Title>
                             <DataTable.Title>Circuito</DataTable.Title>
                             <DataTable.Title>Data</DataTable.Title>
                             <DataTable.Title>Vencedor</DataTable.Title>
-                            <DataTable.Title>Scuderia</DataTable.Title>
+                            <DataTable.Title>Escuderia</DataTable.Title>
                             <DataTable.Title>Voltas</DataTable.Title>
                             <DataTable.Title>Tempo</DataTable.Title>
                         </DataTable.Header>
