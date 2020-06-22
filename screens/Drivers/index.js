@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DataTable } from 'react-native-paper';
 import { Text } from 'react-native-elements';
@@ -9,11 +9,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10,
     },
-    button: {
-        marginTop: 10,
-        marginBottom: 10,
-        width: 150,
-    }
 });
 
 class Drivers extends Component {
@@ -34,25 +29,25 @@ class Drivers extends Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                {this.state.drivers.length > 0
-                    ? <DataTable>
-                        <DataTable.Header>
-                            <DataTable.Title>Nome</DataTable.Title>
-                            <DataTable.Title>Nacionalidade</DataTable.Title>
-                        </DataTable.Header>
-                        {
-                            this.state.drivers.map(driver => (
+            <ScrollView>
+                <SafeAreaView style={styles.container}>
+                    {this.state.drivers.length > 0
+                        ? <DataTable>
+                            <DataTable.Header>
+                                <DataTable.Title>Nome</DataTable.Title>
+                                <DataTable.Title>Nacionalidade</DataTable.Title>
+                            </DataTable.Header>
+                            {this.state.drivers.map(driver => (
                                 <DataTable.Row key={driver.driverId}>
                                     <DataTable.Cell>{driver.givenName} {driver.familyName}</DataTable.Cell>
                                     <DataTable.Cell>{driver.nationality}</DataTable.Cell>
                                 </DataTable.Row>
-                            ))
-                        }
-                    </DataTable>
-                    : <Text>Buscando...</Text>
-                }
-            </SafeAreaView>
+                            ))}
+                        </DataTable>
+                        : <Text>Buscando...</Text>
+                    }
+                </SafeAreaView>
+            </ScrollView>
         )
     }
 }

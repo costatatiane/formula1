@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Card, Title, Paragraph, Divider } from 'react-native-paper';
+import { Card, Paragraph, Headline, Caption } from 'react-native-paper';
 import { Text } from 'react-native-elements';
 
 const styles = StyleSheet.create({
@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10,
     },
-    button: {
+    card: {
+        width: 320,
         marginTop: 10,
-        marginBottom: 10,
-        width: 150,
-    }
+        marginBottom: 10
+    },
 });
 
 class Circuits extends Component {
@@ -33,28 +33,25 @@ class Circuits extends Component {
     }
 
     render() {
-        console.log(this.state.circuits)
         return (
-            <SafeAreaView style={styles.container}>
-                {this.state.circuits.length > 0
-                    ?  <Card>
-                        {
-                            this.state.circuits.map(circuit => (
+            <ScrollView>
+                <SafeAreaView style={styles.container}>
+                    {this.state.circuits.length > 0
+                        ? this.state.circuits.map(circuit => (
+                            <Card style={styles.card} key={circuit.circuitId}>
                                 <Card.Content>
-                                    <Title>Circuito</Title>
-                                    <Paragraph>{circuit.circuitName}</Paragraph>
-                                    <Title>Cidade</Title>
+                                    <Headline>{circuit.circuitName}</Headline>
+                                    <Caption>Cidade</Caption>
                                     <Paragraph>{circuit.Location.locality}</Paragraph>
-                                    <Title>País</Title>
+                                    <Caption>País</Caption>
                                     <Paragraph>{circuit.Location.country}</Paragraph>
-                                    <Divider />
                                 </Card.Content>
-                            ))
-                        }
-                    </Card>
-                    : <Text>Buscando...</Text>
-                }
-            </SafeAreaView>
+                            </Card>
+                        ))
+                        : <Text>Buscando...</Text>
+                    }
+                </SafeAreaView>
+            </ScrollView>
         );
     }
 }

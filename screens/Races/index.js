@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Card, Title, Paragraph, Divider } from 'react-native-paper';
+import { Card, Paragraph, Subheading, Headline, Caption } from 'react-native-paper';
 import { Text } from 'react-native-elements';
+
+import RaceDetails from './components/RaceDetails';
 
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         marginTop: 10,
     },
-    button: {
+    card: {
+        width: 320,
         marginTop: 10,
-        marginBottom: 10,
-        width: 150,
-    }
+        marginBottom: 10
+    },
 });
 
 class Races extends Component {
@@ -33,28 +35,31 @@ class Races extends Component {
     }
 
     render() {
-        console.log(this.state.races)
         return (
-            <SafeAreaView style={styles.container}>
-                {this.state.races.length > 0
-                    ? <Card>
-                        {
-                            this.state.races.map(race => (
-                                <Card.Content key={race.round}>
-                                    <Title>Corrida</Title>
-                                    <Paragraph>{race.raceName}</Paragraph>
-                                    <Title>Circuito</Title>
+            <ScrollView>
+                <SafeAreaView style={styles.container}>
+                    {this.state.races.length > 0
+                        ? this.state.races.map(race => (
+                            <Card key={race.round} style={styles.card}>
+                                <Card.Content style={styles.card} key={race.round}>
+                                    <Headline>{race.raceName}</Headline>
+                                    <Subheading>{race.round}º round</Subheading>
+                                    <Caption>Circuito</Caption>
                                     <Paragraph>{race.Circuit.circuitName}</Paragraph>
-                                    <Title>Data</Title>
-                                    <Paragraph>{race.date}</Paragraph>
-                                    <Divider />
+                                    <Caption>Data</Caption>
+                                    <Paragraph>{race.date.split("-").reverse().join("/")}</Paragraph>
+                                    <RaceDetails
+                                        handlerSeason={this.props.navigation.navigate}
+                                        year={this.props.route.params.year}
+                                        round={race.round}
+                                    />
                                 </Card.Content>
-                            ))
-                        }
-                    </Card>
-                    : <Text>Buscando...</Text>
-                }
-            </SafeAreaView>
+                            </Card>
+                        ))
+                        : <Text>Buscando...</Text>
+                    }
+                </SafeAreaView>
+            </ScrollView>
         );
     }
 }

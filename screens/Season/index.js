@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Button } from 'react-native-elements';
 
 import Options from './components/Options';
 
@@ -27,19 +26,12 @@ class Season extends Component {
     }
 
     render() {
-        const data = this.state;
         return (
             <SafeAreaView style={styles.container}>
                 <Options 
                     handlerSeason={ this.props.navigation.navigate }
                     year={ this.state.year }
                 />
-
-                {/* <Text>{data.length > 0 ? data[0].raceName : 'Buscando...'}</Text> */}
-                {/* <Races 
-                    handlerSeason={ this.props.navigation.navigate }
-                    races={ this.state.races } */}
-                {/* /> */}
             </SafeAreaView>
         );
     }

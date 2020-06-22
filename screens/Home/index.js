@@ -20,7 +20,7 @@ class Home extends Component {
     componentDidMount() {
         return fetch(`https://ergast.com/api/f1/seasons.json?limit=100`)
             .then(response => response.json())
-            .then(data => this.setState({ years: data.MRData.SeasonTable.Seasons.reverse().slice(0,5) }))
+            .then(data => this.setState({ years: data.MRData.SeasonTable.Seasons.reverse().slice(1,8) }))
             .catch(error => console.log(error));
     }
     

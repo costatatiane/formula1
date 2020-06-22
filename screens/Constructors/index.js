@@ -9,11 +9,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 10,
     },
-    button: {
-        marginTop: 10,
-        marginBottom: 10,
-        width: 150,
-    }
 });
 
 class Constructors extends Component {

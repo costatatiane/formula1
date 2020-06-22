@@ -13,6 +13,7 @@ import DriversScreen from './screens/Drivers';
 import CircuitsScreen from './screens/Circuits';
 import ResultsScreen from './screens/Results';
 import ConstructorsScreen from './screens/Constructors';
+import RaceDetailScreen from './screens/RaceDetail';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
           <Stack.Screen name="Circuits" component={CircuitsScreen} />
           <Stack.Screen name="Results" component={ResultsScreen} />
           <Stack.Screen name="Constructors" component={ConstructorsScreen} />
+          <Stack.Screen name="RaceDetail" component={RaceDetailScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
